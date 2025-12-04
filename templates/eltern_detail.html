@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4">Eltern-Detail</h2>
+
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <h5 class="card-title mb-3">{{ eltern.name }}</h5>
+
+        <p><strong>E-Mail:</strong> {{ eltern.email }}</p>
+
+        <hr>
+
+        <h6 class="fw-bold mb-2">Kinder</h6>
+
+        {% if eltern.kinder %}
+            <ul class="list-group">
+                {% for kind in eltern.kinder %}
+                <li class="list-group-item">
+                    <a href="{{ url_for('kind_detail', kind_id=kind.id) }}" class="fw-semibold">
+                        👶 {{ kind.name }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="text-muted">Noch keine Kinder eingetragen.</p>
+        {% endif %}
+    </div>
+</div>
+
+<a href="{{ url_for('kinder_liste') }}" class="btn btn-outline-primary">
+    Zur Kinder-Übersicht
+</a>
+
+{% endblock %}

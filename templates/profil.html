@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="profile-wrapper">
+
+    <!-- Header -->
+    <div class="profile-header">
+        <h1><i class="fas fa-user"></i> Mein Profil</h1>
+        <a href="{{ url_for('profil_bearbeiten') }}" class="edit-link">
+            <i class="fas fa-pencil-alt"></i> Profil bearbeiten
+        </a>
+    </div>
+
+    <!-- Profil Card -->
+    <div class="profile-card">
+
+        <h2 class="profile-email">{{ eltern.name }}</h2>
+        <p class="profile-label"><strong>E-Mail:</strong> {{ eltern.email }}</p>
+
+        <hr>
+
+        <!-- Kinderbereich -->
+        <h3 class="children-title">👶 Kinder</h3>
+
+        {% if eltern.kinder|length == 0 %}
+            <p class="no-kids">Keine Kinder hinterlegt.</p>
+        {% else %}
+
+            <div class="children-grid">
+                {% for kind in eltern.kinder %}
+                <div class="child-card">
+                    <div class="child-name">👶 {{ kind.name }}</div>
+                    <div class="child-date">📅 {{ kind.geburt }}</div>
+                </div>
+                {% endfor %}
+            </div>
+
+        {% endif %}
+
+        <!-- Button -->
+        <a href="{{ url_for('kind_neu') }}" class="btn-blue">
+            <i class="fas fa-plus"></i> Kind hinzufügen
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

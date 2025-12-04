@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="text-align:center; padding:60px;">
+    <h1 style="font-size:80px; margin-bottom:10px; color:#1a4d7c;">404</h1>
+    <p style="font-size:22px; color:#444;">Diese Seite wurde nicht gefunden.</p>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/2748/2748558.png"
+         style="width:160px; margin:30px auto; opacity:0.9;">
+
+    <a href="{{ url_for('home') }}" class="btn-details" 
+       style="margin-top:20px; display:inline-block;">
+        Zur Startseite
+    </a>
+</div>
+{% endblock %}

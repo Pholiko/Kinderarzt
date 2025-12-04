@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard fade-in">
+
+    <!-- Hero -->
+    <section class="hero" style="text-align:center; margin-top:35px;">
+        <h1>👋 Willkommen, {{ eltern.name }}!</h1>
+        <p>Schön, dass Sie da sind. Hier finden Sie eine Übersicht über Ihre nächsten Schritte.</p>
+    </section>
+
+    <!-- Container für Karten -->
+    <div class="home-wrapper">
+
+        <!-- Nächster Termin -->
+        <div class="home-card">
+            <h3 class="card-title">🩺 Nächster Termin</h3>
+
+            {% if naechster %}
+                <p><strong>Kind:</strong> {{ naechster.kind.name }}</p>
+                <p><strong>Untersuchung:</strong> {{ naechster.art }}</p>
+                <p><strong>Datum:</strong> {{ naechster.datum }}</p>
+
+                <p><strong>Status:</strong>
+                    {% if naechster.erledigt %}
+                        <span class="badge badge-green">erledigt</span>
+                    {% elif naechster.bestaetigtes_datum %}
+                        <span class="badge badge-blue">bestätigt</span>
+                    {% else %}
+                        <span class="badge badge-red">offen</span>
+                    {% endif %}
+                </p>
+
+                <a href="{{ url_for('termin_detail', id=naechster.id) }}" class="btn btn-primary">
+                    Details ansehen →
+                </a>
+            {% else %}
+                <p>Aktuell ist kein Termin geplant.</p>
+            {% endif %}
+        </div>
+
+        <!-- Kinder -->
+        <div class="home-card">
+            <h3 class="card-title">🧒 Ihre Kinder</h3>
+
+            {% if kinder %}
+                {% for kind in kinder %}
+                    <p><strong>{{ kind.name }}</strong> – {{ kind.geburt }}</p>
+                {% endfor %}
+            {% else %}
+                <p>Noch keine Kinder angelegt.</p>
+            {% endif %}
+        </div>
+
+    </div>
+
+    <!-- Buttons -->
+    <div class="home-buttons">
+        <a href="{{ url_for('kind_neu') }}" class="btn btn-primary">➕ Kind hinzufügen</a>
+        <a href="{{ url_for('termine') }}" class="btn btn-secondary">📅 Zu den Terminen</a>
+        <a href="{{ url_for('eltern_profil') }}" class="btn btn-secondary">👤 Mein Profil</a>
+    </div>
+
+</div>
+{% endblock %}

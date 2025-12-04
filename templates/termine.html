@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+.kind-section {
+    background: #eef6ff;
+    padding: 30px;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.kind-header {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #064a8c;
+}
+</style>
+
+<div class="page-title-section">
+    <h1 class="page-title">🗂️ Alle U-Termine</h1>
+</div>
+
+<!-- Nächster Termin -->
+{% if naechster %}
+<div class="next-box">
+    <h2><i class="fas fa-bell"></i> Nächster Termin</h2>
+
+    <p><strong>Kind:</strong> {{ naechster.kind.name }}</p>
+    <p><strong>Art:</strong> {{ naechster.art }}</p>
+    <p><strong>Datum:</strong> {{ naechster.datum }}</p>
+
+    <a href="{{ url_for('termin_detail', id=naechster.id) }}" class="btn-details">Details</a>
+</div>
+{% endif %}
+
+<hr class="divider">
+
+<!-- Termingruppen nach Kind -->
+{% for kindname, termlist in gruppen.items() %}
+<div class="kind-section">
+
+    <!-- Kind Header -->
+    <h2 class="kind-header">
+        👶 {{ kindname }}
+    </h2>
+
+    <div class="termin-grid">
+
+        {% for t in termlist %}
+        <div class="termin-card fade-in">
+
+            <div class="termin-title">
+                <i class="fas fa-stethoscope"></i>
+                {{ t.art }}
+            </div>
+
+            <div class="termin-info">
+                📅 {{ t.datum }}
+            </div>
+
+            <a href="{{ url_for('termin_detail', id=t.id) }}" class="btn-termin">
+                Details ansehen
+            </a>
+
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4">Alle Eltern</h2>
+
+<div class="card shadow-sm">
+    <div class="card-body p-0">
+        <table class="table table-hover mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th>Name</th>
+                    <th>E-Mail</th>
+                    <th>Kinder</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for e in eltern %}
+                <tr>
+                    <td>
+                        <a href="{{ url_for('eltern_detail', eltern_id=e.id) }}" class="fw-semibold">
+                            {{ e.name }}
+                        </a>
+                    </td>
+                    <td>{{ e.email }}</td>
+                    <td>
+                        {% for k in e.kinder %}
+                            {{ k.name }}{% if not loop.last %}, {% endif %}
+                        {% else %}
+                            <span class="text-muted">keine</span>
+                        {% endfor %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

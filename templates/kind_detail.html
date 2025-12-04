@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Kind-Detail</h2>
+
+<div class="card">
+    <p><strong>Name:</strong> {{ kind.name }}</p>
+    <p><strong>Geburtsdatum:</strong> {{ kind.geburt }}</p>
+    <p><strong>Eltern:</strong>
+        <a href="{{ url_for('eltern_detail', eltern_id=kind.eltern.id) }}">
+            {{ kind.eltern.name }}
+        </a>
+    </p>
+</div>
+
+<h3>U-Termine</h3>
+
+<ul>
+    {% for t in kind.termine %}
+        <li>{{ t.art }} – {{ t.datum }} – {% if t.erledigt %}✔ erledigt{% else %}❌ offen{% endif %}</li>
+    {% else %}
+        <li>Keine Termine.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

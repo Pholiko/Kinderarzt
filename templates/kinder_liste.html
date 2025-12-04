@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="page-title">
+    <h2 class="kinder-title">
+    <i class="bi bi-people-fill"></i> Ihre Kinder
+</h2>
+
+</div>
+
+<div class="kinder-wrapper">
+
+    {% for kind in kinder %}
+    <div class="kind-card">
+
+        <div class="kind-info">
+            <h3><i class="bi bi-person-badge"></i> {{ kind.name }}</h3>
+
+            <div class="kind-detail">
+                <i class="bi bi-calendar-event"></i>
+                <span>Geburt: {{ kind.geburt }}</span>
+            </div>
+        </div>
+
+        <div class="kind-actions">
+            <a class="btn-edit" href="{{ url_for('kind_bearbeiten', kind_id=kind.id) }}">
+                <i class="bi bi-pencil-square"></i> Bearbeiten
+            </a>
+            <a class="btn-delete"
+               href="{{ url_for('kind_loeschen', kind_id=kind.id) }}"
+               onclick="return confirm('Soll dieses Kind wirklich gelöscht werden?');">
+               <i class="bi bi-trash"></i> Löschen
+            </a>
+        </div>
+
+    </div>
+    {% endfor %}
+
+</div>
+
+<div class="add-child-container">
+    <a class="btn-add" href="{{ url_for('kind_neu') }}">
+        <i class="bi bi-plus-circle"></i> Neues Kind hinzufügen
+    </a>
+</div>
+
+{% endblock %}

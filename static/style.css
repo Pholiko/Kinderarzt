@@ -1,0 +1,1174 @@
+/* ============================================
+   GLOBAL
+============================================ */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    color: #222;
+}
+
+h1, h2 {
+    margin-bottom: 12px;
+}
+
+.fade-in {
+    animation: fade .4s ease;
+}
+@keyframes fade {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   NAVBAR
+============================================ */
+
+.navbar {
+    background: #003366;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 36px;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+}
+
+.nav-center {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-center li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.nav-center li a:hover {
+    background: rgba(255,255,255,0.32);
+    transform: translateY(-1px);
+    transition: 0.25s ease;
+}
+
+.logout-btn {
+    padding: 8px 14px;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 7px;
+    color: white;
+}
+.logout-btn:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+/* ============================================
+   HOME PAGE
+============================================ */
+
+.dashboard {
+    max-width: 900px;
+    margin: auto;
+    padding: 30px;
+}
+
+.welcome-title {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.welcome-sub {
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.page-title-section {
+    background: #f0f4fa;
+    padding: 22px 40px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #d5dce5;
+}
+
+.page-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
+}
+
+
+.next-box {
+    max-width: 650px;
+    margin: 0 auto 40px auto;
+    background: #ffffff;
+    border-left: 6px solid #0050a8;
+    padding: 25px 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+
+
+.badge {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+.badge-green { background: #d9f7e5; color: #0a8a3a; }
+.badge-blue  { background: #e4efff; color: #225bce; }
+.badge-red   { background: #ffe5e5; color: #b91c1c; }
+
+/* Buttons */
+.btn-large {
+    padding: 12px 24px;
+    display: inline-block;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 10px;
+}
+.btn-blue { background: #003366; color: white; }
+.btn-grey { background: #145ca8; color: white; }
+
+.btn-large:hover { opacity: .85; }
+
+.btn-details {
+    background: #0d3b66;
+    padding: 10px 14px;
+    border-radius: 10px;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+}
+.btn-details:hover { background: #145ca8; }
+
+/* ============================================
+   TERMINLISTE / CARDS
+============================================ */
+
+.termin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.8rem;
+    max-width: 1200px;
+    margin: 0 auto 80px auto;
+    padding-top: 20px;
+}
+
+
+.termin-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 1.6rem 1.4rem;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    border: 1px solid #e4e8ef;
+    transition: 0.25s ease;
+    height: 160px; /* WICHTIG: echte „Cards“ */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.termin-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+}
+
+
+.termin-title {
+    font-weight: bold;
+    margin-bottom: .5rem;
+    color: #003366;
+    font-size: 1.05rem;
+}
+
+.btn-termin {
+    margin-top: .8rem;
+    display: inline-block;
+    padding: 8px 14px;
+    background: #0d3b66;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.btn-termin:hover {
+    background: #145ca8;
+}
+/* NAVBAR LOGO – groß, auffällig, modern */
+.navbar .brand {
+    font-size: 22px;
+    font-weight: 700;
+    margin-left: 8px;
+}
+
+.logo-icon {
+    font-size: 26px;
+    margin-right: 6px;
+}
+
+/* --- Kompaktes, modernes Card-Design (wie Screenshot 2) --- */
+
+.card {
+    background: #ffffff;
+    border-radius: 12px;        /* nicht so stark wie vorher */
+    padding: 20px 28px;         /* weniger klobig */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    border: 1px solid #eef1f5;
+    margin: 20px auto;
+    width: 75%;                 /* etwas schmaler */
+    transition: .2s ease;
+}
+
+.card.small-card {
+    width: 65%;                 /* Kinder-Karte noch etwas schlanker */
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+/* Titel im Card */
+.card h3, 
+.card h4 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+}
+
+/* Etwas kompaktere Paragraphs */
+.card p {
+    margin: 4px 0;
+    font-size: 0.98rem;
+}
+
+/* Buttons kompakter */
+.card .btn {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+}
+/* Wrapper für Karten */
+.home-wrapper {
+    max-width: 850px;
+    margin: 40px auto;
+}
+
+/* Die Boxen */
+.home-card {
+    background: white;
+    border-left: 5px solid #0a3a6b;
+    padding: 20px 26px;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+    margin-bottom: 22px;
+}
+
+/* Titel in Karten */
+.card-title {
+    margin-top: 0;
+    margin-bottom: 14px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #0a3a6b;
+}
+
+/* Buttons unten */
+.home-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 18px;
+}
+
+/* Primary Button */
+.btn-primary {
+    background: #0a3a6b;
+    color: white !important;
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+}
+.btn-primary:hover { background: #12497f; }
+
+/* Secondary Button */
+.btn-secondary {
+    background: #145ca8;
+    color: white !important;
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+}
+.btn-secondary:hover { background: #1c6bc2; }
+
+/* Badges */
+.badge {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.badge-green { background:#d9f7e5; color:#0a8a3a; }
+.badge-blue { background:#e4efff; color:#225bce; }
+.badge-red { background:#ffe5e5; color:#c62828; }
+/* Profilseite */
+.profile-page {
+    max-width: 850px;
+    margin: 40px auto;
+}
+
+/* Headerbereich */
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.profile-header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0a3a6b;
+}
+
+.profile-edit {
+    color: #145ca8;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.2s;
+    font-size: 1rem;
+}
+
+.profile-edit:hover {
+    text-decoration: underline;
+}
+
+/* Die Karte */
+.profile-card {
+    background: #ffffff;
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    border-left: 6px solid #0a3a6b;
+}
+
+.profile-name {
+    margin-top: 0;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #253757;
+}
+
+.profile-card hr {
+    margin: 18px 0;
+    border: 0;
+    height: 1px;
+    background: #e5e7eb;
+}
+
+/* Kinderliste */
+.profile-kids {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 22px;
+}
+
+.profile-kids li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+    font-size: 1rem;
+}
+
+.kid-icon {
+    font-size: 1.2rem;
+}
+
+.kid-date {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+.profile-wrapper {
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.profile-header h1 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #0a3a6b;
+}
+
+.edit-link {
+    color: #0a3a6b;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.edit-link:hover {
+    opacity: 0.7;
+}
+
+.profile-card {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    border-left: 6px solid #0a3a6b;
+}
+
+.profile-email {
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+}
+
+.profile-label {
+    color: #444;
+}
+
+.children-title {
+    margin-top: 22px;
+    font-size: 1.2rem;
+}
+
+.no-kids {
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.children-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 20px;
+}
+
+.child-card {
+    background: #f8fbff;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #e5edf7;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.child-name {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.child-date {
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.btn-blue {
+    background: #0a3a6b;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 10px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-blue:hover {
+    background: #12497f;
+}
+/* ------------------------------
+   FOOTER
+--------------------------------*/
+.app-footer {
+    width: 100%;
+    background: #f8fafc;
+    border-top: 1px solid #e3e7ee;
+    padding: 20px 0;
+    margin-top: 40px;
+    text-align: center;
+    color: #4b5563;
+    font-size: 14px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.footer-logo {
+    font-size: 16px;
+    font-weight: 600;
+    color: #0a3a6b;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: #1e3a8a;
+    text-decoration: none;
+    margin: 0 4px;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #0a58ca;
+}
+
+.footer-copy {
+    display: block;
+    margin-top: 8px;
+    color: #6b7280;
+    font-size: 13px;
+}
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.app-footer {
+    margin-top: auto;
+}
+/* Modern Form Layout */
+.form-wrapper {
+    max-width: 450px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.form-title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #123c66;
+}
+
+.modern-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-label {
+    font-weight: 600;
+    margin-bottom: -5px;
+    color: #123c66;
+}
+
+.form-input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #c9d6e2;
+    background: #f7fbff;
+    font-size: 1rem;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #195fa4;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(25,95,164,0.15);
+}
+
+/* Buttons */
+.btn-primary {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #0d3c61;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-primary:hover {
+    background: #15568f;
+}
+
+.btn-secondary {
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #d4e3f1;
+    color: #123c66;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.2s;
+}
+
+.btn-secondary:hover {
+    background: #c2d7eb;
+}
+
+.button-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+/* Zentriert die Card */
+.card-center {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+/* Standard Card */
+.card {
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 14px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 550px;
+}
+
+/* Titel */
+.card-title {
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+/* Form */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #bfc8d0;
+    font-size: 1rem;
+}
+
+/* Buttons */
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.btn-primary {
+    background: #003b71;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: #00529c;
+}
+
+.btn-secondary {
+    background: #d7dce0;
+    padding: 10px 22px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.btn-secondary:hover {
+    background: #c5cacf;
+}
+.text-small {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.text-small a {
+    color: #003b71;
+    font-weight: 600;
+}
+
+.error-box {
+    background: #ffdddd;
+    border-left: 4px solid #d30000;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+.form-container {
+    max-width: 450px;
+    margin: 60px auto;
+}
+
+.form-card {
+    border-radius: 15px;
+    padding: 30px 35px;
+    background: white;
+}
+
+.form-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.form-control-lg {
+    border-radius: 10px;
+}
+
+.btn-primary {
+    background-color: #0b488e;
+    border-color: #0b488e;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #093b72;
+}
+
+.alert {
+    border-radius: 10px;
+}
+
+a {
+    color: #0b488e;
+}
+a:hover {
+    color: #06315e;
+}
+
+/* --- Login/Register Full Center --- */
+.center-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh;
+}
+
+/* Box */
+.form-card {
+    width: 420px;
+    padding: 40px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    text-align: center;   /* <<< ZENTRAL !!! */
+}
+
+/* Zentrierte Labels */
+.form-card label {
+    display: block;
+    text-align: center;    /* <<< ZENTRIERUNG */
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+/* Inputs zentriert */
+.form-card input {
+    width: 80%;
+    margin: 0 auto 16px auto;  /* <<< ZENTRIERT */
+    display: block;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* Button zentriert */
+.form-card button {
+    width: 50%;
+    margin: 12px auto 20px auto;
+    display: block;
+}
+
+/* Footer */
+.form-footer {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+.form-footer a {
+    color: #004a99;
+    font-weight: 500;
+}
+.kid-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8fbff;
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #dbe6f3;
+}
+
+.kid-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-small {
+    background: #0d6efd;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.btn-small-danger {
+    background: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: none;
+    font-size: 0.85rem;
+}
+/* -------- Kinderliste -------- */
+
+.page-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.page-title {
+    font-size: 26px;
+    margin-bottom: 25px;
+    font-weight: 700;
+    color: #0d3b66;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.kids-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.kid-card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.kid-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.kid-info .kid-name {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.kid-info .kid-birth {
+    margin-top: 3px;
+    font-size: 15px;
+    color: #666;
+}
+
+.kid-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-edit {
+    background: #0d6efd;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn-edit:hover {
+    background: #0b5ed7;
+}
+
+.btn-delete {
+    background: #dc3545;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn-delete:hover {
+    background: #bb2d3b;
+}
+
+/* Button unten */
+.add-wrapper {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btn-add {
+    background: #198754;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.btn-add:hover {
+    background: #157347;
+}
+/* --- Form Wrapper (zentriert) --- */
+.form-wrapper {
+    max-width: 450px;
+    margin: 40px auto;
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.form-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #0d3b66;
+}
+
+/* --- Labels & Inputs --- */
+.form-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.input-label {
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: -10px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d2d7df;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+/* Buttons */
+.btn-primary {
+    background: #0d3b66;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: #0b2f53;
+}
+
+.btn-secondary {
+    display: block;
+    margin-top: 10px;
+    color: #0d3b66;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.btn-secondary:hover {
+    text-decoration: underline;
+}
+
+/* Fehlerbox */
+.error-box {
+    background: #ffe0e0;
+    color: #820000;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+/* --- Seite zentrieren --- */
+.page-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.page-title h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0d3b66;
+}
+
+/* --- Wrapper für alle Kinderkarten --- */
+.kinder-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* --- Einzelne Kinderkarte --- */
+.kind-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
+    border-left: 6px solid #145ea8;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: 0.3s ease;
+}
+
+.kind-card:hover {
+    transform: scale(1.01);
+}
+
+/* --- Infos --- */
+.kind-info h3 {
+    margin: 0;
+    font-size: 22px;
+    color: #0d3b66;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.kind-detail {
+    margin-top: 8px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #555;
+}
+
+/* --- Aktionen --- */
+.kind-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.btn-edit,
+.btn-delete {
+    padding: 8px 16px;
+    font-size: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.2s ease;
+}
+
+.btn-edit {
+    background: #0d6efd;
+}
+.btn-edit:hover {
+    background: #0b5ed7;
+}
+
+.btn-delete {
+    background: #dc3545;
+}
+.btn-delete:hover {
+    background: #bb2d3b;
+}
+
+/* --- Add Button --- */
+.add-child-container {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.btn-add {
+    background: #198754;
+    padding: 12px 22px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 17px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.25s ease;
+}
+
+.btn-add:hover {
+    background: #146c43;
+    transform: scale(1.03);
+}
+/* Überschrift "Ihre Kinder" zentrieren */
+.kinder-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #0d3b66;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+<style>
+.kind-section {
+    background: #eef6ff;
+    padding: 30px;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.kind-header {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #064a8c;
+}
+</style>

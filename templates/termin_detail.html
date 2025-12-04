@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-4" style="max-width: 700px;">
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <h3 class="mb-4">Termin bearbeiten</h3>
+
+            <!-- Kind + U-Art -->
+            <div class="mb-3">
+                <strong>Kind:</strong> {{ termin.kind.name }}<br>
+                <strong>U-Art:</strong> {{ termin.art }}
+            </div>
+
+            <!-- Berechnetes Datum -->
+            <div class="mb-4 p-3 bg-light rounded border">
+                <strong>Berechnetes Datum:</strong>
+                <span class="ms-2">{{ termin.datum }}</span>
+            </div>
+
+            <!-- Formular -->
+            <form method="POST">
+
+                <!-- Bestätigtes Datum -->
+                <div class="mb-3">
+                    <label class="form-label"><strong>Bestätigtes Datum (optional)</strong></label>
+                    <input 
+                        type="date" 
+                        name="bestaetigtes_datum" 
+                        class="form-control"
+                        value="{{ termin.bestaetigtes_datum if termin.bestaetigtes_datum else '' }}"
+                    >
+                </div>
+
+                <!-- Erledigt -->
+                <div class="form-check mb-4">
+                    <input 
+                        class="form-check-input" 
+                        type="checkbox" 
+                        name="erledigt" 
+                        id="erledigt"
+                        {% if termin.erledigt %}checked{% endif %}
+                    >
+                    <label class="form-check-label" for="erledigt">
+                        Termin erledigt
+                    </label>
+                </div>
+
+                <!-- Buttons -->
+                <div class="d-flex gap-3">
+                    <button type="submit" class="btn btn-primary">
+                        💾 Speichern
+                    </button>
+<br>
+                    <a href="{{ url_for('termine') }}" class="btn btn-outline-secondary">
+                        ← Zurück zu allen Terminen
+                    </a>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

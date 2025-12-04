@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="center-page">
+    <div class="form-card">
+
+        <h2 class="form-title"><i class="fas fa-user-plus"></i> Registrieren</h2>
+
+        {% if error %}
+            <div class="alert">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST">
+
+            <label>E-Mail</label>
+            <input type="email" name="email" required>
+
+            <label>Passwort</label>
+            <input type="password" name="password" required>
+
+            <label>Passwort wiederholen</label>
+            <input type="password" name="password2" required>
+
+            <button class="btn-primary">Registrieren</button>
+        </form>
+
+        <p class="form-footer">
+            Bereits einen Account?
+            <a href="{{ url_for('login') }}">Hier einloggen</a>
+        </p>
+
+    </div>
+</div>
+
+{% endblock %}
